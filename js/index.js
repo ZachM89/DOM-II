@@ -10,6 +10,7 @@ const h4Selector = document.querySelectorAll("h4");
 const windowSelector = window;
 const navSelector = document.querySelector(".main-navigation .nav-container");
 const input = document.querySelectorAll('p');
+const homeSelector = document.querySelector('.home');
 
 
 
@@ -21,14 +22,24 @@ for(let a = 0; a < navElementSelector.length; a++){
             e.target.style.backgroundColor = 'blue';
         } else {
             e.target.style.backgroundColor = 'white';
-        }
-        
+        }        
     });
+
+    if(a === 0){
+        navElementSelector[a].addEventListener('click', (e) => {
+                e.preventDefault();      
+        });
+    }
 }
+
+homeSelector.addEventListener('dblclick', (e) => {
+    e.target.style.display = 'none';
+})
 
 for(let a = 0; a < paragraphElementSelector.length; a++){
     paragraphElementSelector[a].addEventListener('dblclick', (e) => {
-        e.target.style.display = 'none';
+        e.target.style.backgroundcolor = 'teal';
+        e.stopPropagation();
     })
 }
 
